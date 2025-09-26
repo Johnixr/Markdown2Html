@@ -1,40 +1,63 @@
 <div align="center">
-<a href="https://md.weiyan.dev">
+<a href="https://md.agihunt.info">
 <img width="500" src="./screenshot.png"/>
 </a>
 </div>
-<h1 align="center">Markdown2Html</h1>
+<h1 align="center">Markdown2Html - 102套全新CSS模板</h1>
 
 ## 简介
 
-Fork 自 [markdown2html](https://github.com/TaleAi/markdown2html)，略有调整。
+**Forked from [shenweiyan/Markdown2Html](https://github.com/shenweiyan/Markdown2Html)** - 感谢原作者的优秀工作！
 
-- 支持自定义样式的 Markdown 编辑器
-- 支持微信公众号、知乎和稀土掘金
-- 支持公式
-- 支持 html 转 markdwon
-- 支持导出 pdf 和 markdown
-- 欢迎在线使用：
-  - https://md.weiyan.cc/
+本项目在原有基础上进行了重大改造，现已集成 **102套全新设计的CSS模板**，为Markdown内容提供丰富多样的视觉效果。
 
-## 主题
+## 🎉 项目特色
 
-> 主题: <https://github.com/macrozheng/mall-learning/blob/master/document/json/localThemeList.json>
+- ✨ **102套专业设计模板** - 涵盖设计风格系列、色彩主题系列、极简风格系列
+- 🎨 支持自定义样式的 Markdown 编辑器
+- 📱 支持微信公众号、知乎和稀土掘金
+- 📐 支持数学公式渲染
+- 🔄 支持 HTML 转 Markdown
+- 📄 支持导出 PDF 和 Markdown
+- 🚀 **在线体验**: [https://md.agihunt.info](https://md.agihunt.info)
 
-> 欢迎提交主题，提供更多文章示例~~
+## 🎯 模板分类
 
-## 友情链接
+### 🎨 设计风格系列 (1-12)
+街头工业涂鸦革命、深绿墨金皇家典藏、赛博朋克霓虹、极简主义大师、瑞士国际主义、孟菲斯波普、包豪斯工业、日式侘寂、野兽派艺术、未来主义宣言、装饰艺术、野兽派建筑
 
-- [markdown2html](https://github.com/TaleAi/markdown2html)：markdown2html
-- [markdown nice](https://mdnice.com/)：markdown nice
+### 🌈 色彩主题系列 (13-52)
+包含北欧极光、热带雨林、火星基地、深海生物光、樱花季、午夜爵士等40种独特色彩主题
 
+### 🎯 极简风格系列 (53-102)
+包含清纸、墨韵、北欧雪、禅石、晨岚、海风、数字蓝图、北极狐等50种极简设计风格
 
-<!-- Security scan triggered at 2025-09-02 14:24:11 -->
+## 🚀 使用方法
 
-<!-- Security scan triggered at 2025-09-02 15:26:14 -->
+1. **选择模板**: 点击顶部菜单栏的"主题"按钮，从102个模板中任选一个
+2. **编写内容**: 在左侧编辑器输入Markdown内容，右侧实时预览
+3. **复制HTML**: 点击右侧工具栏的"微信"按钮，复制生成的HTML代码
+4. **自定义样式**: 选择"自定义"模板，点击"查看主题CSS"进行个性化编辑
 
-<!-- Security scan triggered at 2025-09-02 15:26:29 -->
+## 🛠 技术要求
 
-<!-- Security scan triggered at 2025-09-02 15:27:07 -->
+- **Node.js版本**: 建议使用Node.js 14或16版本
+- **兼容性处理**: 更新Node版本需设置 `NODE_OPTIONS=--openssl-legacy-provider`
 
-<!-- Security scan triggered at 2025-09-02 15:27:35 -->
+## 📌 本项目更新
+
+- 🆕 全新集成102套专业设计的CSS模板
+- 🔧 修复React Fragment兼容性问题
+- ⚡ 优化主题选择和切换体验
+- 📱 所有模板支持响应式设计
+
+## 👥 致谢
+
+- 感谢 [shenweiyan/Markdown2Html](https://github.com/shenweiyan/Markdown2Html) 提供的优秀基础框架
+- 感谢 [TaleAi/markdown2html](https://github.com/TaleAi/markdown2html) 的原创工作
+
+## 🔗 友情链接
+
+- [原始项目](https://github.com/shenweiyan/Markdown2Html)
+- [TaleAi markdown2html](https://github.com/TaleAi/markdown2html)
+- [Markdown Nice](https://mdnice.com/)

@@ -1,17 +1,17 @@
 {
-  "name": "markdown2wechat",
-  "author": "tale",
-  "description": "a markdown editor with the function of style edition",
+  "name": "markdown2html-102-themes",
+  "author": "Johnixr",
+  "description": "Markdown editor with 102 professional CSS templates - Forked from shenweiyan/Markdown2Html",
   "version": "1.0.0",
   "private": false,
   "main": "lib/Lib.js",
   "module": "lib/Lib.js",
-  "homepage": "http://md.aizhuanqian.online",
+  "homepage": "https://md.agihunt.info",
   "license": "GPL-3.0",
   "typings": "./lib/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/TaleAi/markdown2html"
+    "url": "https://github.com/Johnixr/Markdown2Html"
   },
   "scripts": {
     "start": "node scripts/start.js",
@@ -124,8 +124,8 @@
     "workbox-webpack-plugin": "3.6.3"
   },
   "build": {
-    "productName": "Markdown2Html",
-    "appId": "com.aizhuanqian.www",
+    "productName": "Markdown2Html-102-Themes",
+    "appId": "com.agihunt.md",
     "mac": {
       "target": [
         "dmg",
