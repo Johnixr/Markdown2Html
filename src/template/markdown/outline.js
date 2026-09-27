@@ -1,37 +1,41 @@
-export default `/* 06. 杂志 — 黑白杂志：细线分节、居中拉引、文末方块 */
+export default `/* 11. 描边 — 海报感：大号空心数字章节（笔画描出）、描边引号 */
 /* 主题色：--accent 主色，--accent-soft 浅色（只用于线条和小装饰）；编辑器「主题色」菜单可一键替换 */
 /* ---------- 装饰（渲染时注入，占位符 {n} {nn} {cn} {p}） ---------- */
 
-/* @decor blockquote.before
-<section class="nice-q-before" style="text-align:center;"><svg width="22" height="18" viewBox="0 0 22 18" style="display:inline-block;margin-bottom:8px;"><text x="0" y="26" font-size="34" font-family="Georgia, serif" style="fill:var(--accent)">“</text></svg></section>
+/* @decor h2.prefix
+<svg width="86" height="50" viewBox="0 0 86 50" style="display:block;margin-bottom:6px;"><text x="1" y="44" font-size="50" font-weight="700" font-family="Helvetica Neue, Arial, sans-serif" letter-spacing="-1" fill="none" stroke-width="1.1" stroke-dasharray="700" style="stroke:var(--accent)">{nn}<animate attributeName="stroke-dashoffset" from="700" to="0" dur="2.6s" fill="freeze"/></text></svg>
 */
 
-/* @decor end
-<section class="nice-end"><svg width="9" height="9" viewBox="0 0 9 9" style="display:inline-block;"><rect width="9" height="9" style="fill:var(--accent)"/></svg></section>
+/* @decor blockquote.before
+<section class="nice-q-before"><svg width="26" height="20" viewBox="0 0 26 20" style="display:block;margin:0 0 6px;"><text x="-1" y="30" font-size="40" font-family="Georgia, serif" fill="none" stroke-width="1" style="stroke:var(--accent)">“</text></svg></section>
+*/
+
+/* @decor hr
+<section class="nice-divider"><svg width="46" height="10" viewBox="0 0 46 10" style="display:inline-block;"><circle cx="5" cy="5" r="4" fill="none" stroke-width="1" style="stroke:var(--accent)"/><circle cx="23" cy="5" r="4" fill="none" stroke-width="1" style="stroke:var(--accent)"/><circle cx="41" cy="5" r="4" fill="none" stroke-width="1" style="stroke:var(--accent)"/></svg></section>
 */
 
 /* ========== 全局 ========== */
 #nice {
   --accent: #262626;
   --accent-soft: #d6d6d6;
-  font-family: 'Songti SC', 'Noto Serif SC', 'Source Han Serif SC', STSong, Georgia, serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
   font-size: 16px;
-  color: #262626;
-  line-height: 1.9;
-  letter-spacing: 0.03em;
+  color: #333333;
+  line-height: 1.85;
+  letter-spacing: 0.02em;
   padding: 0 8px;
   background: #ffffff;
   word-break: break-word;
-  text-align: justify;
+  text-align: left;
 }
 
 #nice p {
   font-size: 16px;
-  line-height: 1.9;
-  color: #262626;
+  line-height: 1.85;
+  color: #333333;
   margin: 20px 0;
   padding: 0;
-  text-align: justify;
+  text-align: left;
 }
 
 /* ========== 标题 ========== */
@@ -39,7 +43,7 @@ export default `/* 06. 杂志 — 黑白杂志：细线分节、居中拉引、�
   color: #111111;
   padding: 0;
   text-align: left;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
 }
 #nice h1 .prefix, #nice h2 .prefix, #nice h3 .prefix,
 #nice h4 .prefix, #nice h5 .prefix, #nice h6 .prefix,
@@ -61,19 +65,16 @@ export default `/* 06. 杂志 — 黑白杂志：细线分节、居中拉引、�
 }
 
 #nice h2 {
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 800;
   line-height: 1.4;
-  border-top: 1px solid #cfcfcf;
-  padding-top: 18px;
-  margin: 52px 0 20px;
+  margin: 52px 0 18px;
 }
+#nice h2 .prefix { display: block; line-height: 0; }
 #nice h3 {
-  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  margin: 32px 0 10px;
+  margin: 30px 0 10px;
 }
 
 /* ========== 行内 ========== */
@@ -83,7 +84,7 @@ export default `/* 06. 杂志 — 黑白杂志：细线分节、居中拉引、�
 }
 #nice em {
   font-style: italic;
-  color: #555555;
+  color: #333333;
 }
 #nice em strong, #nice strong em {
   color: #111111;
@@ -102,7 +103,7 @@ export default `/* 06. 杂志 — 黑白杂志：细线分节、居中拉引、�
   font-family: 'SF Mono', Menlo, Consolas, 'PingFang SC', monospace;
   font-size: 0.86em;
   color: #444444;
-  background: #f2f2f2;
+  background: #f2f2f1;
   padding: 2px 5px;
   margin: 0 2px;
   border-radius: 3px;
@@ -113,15 +114,15 @@ export default `/* 06. 杂志 — 黑白杂志：细线分节、居中拉引、�
 #nice ul, #nice ol {
   margin: 20px 0;
   padding-left: 1.3em;
-  color: #262626;
+  color: #333333;
 }
 #nice ul { list-style-type: disc; }
 #nice ul ul { list-style-type: circle; margin: 4px 0; }
 #nice ol { list-style-type: decimal; }
 #nice li section {
   font-size: 16px;
-  line-height: 1.9;
-  color: #262626;
+  line-height: 1.85;
+  color: #333333;
   font-weight: 400;
   margin: 6px 0;
   text-align: left;
@@ -129,27 +130,24 @@ export default `/* 06. 杂志 — 黑白杂志：细线分节、居中拉引、�
 
 /* ========== 引用 ========== */
 #nice blockquote {
-  margin: 36px 0;
-  padding: 0 16px;
+  margin: 30px 0;
+  padding: 0;
   border: none;
   background: none;
-  text-align: center;
 }
 
 #nice blockquote p, #nice blockquote li section {
   font-size: 16px;
   line-height: 1.8;
-  color: #111111;
+  color: #444444;
   margin: 6px 0;
-  font-weight: 700;
-  text-align: center;
 }
 
 /* ========== 代码块（微信代码主题 / 高亮主题两种结构） ========== */
 #nice .code-snippet__fix {
-  background: #f5f5f5;
+  background: #f7f7f6;
   border: none;
-  border-radius: 0px;
+  border-radius: 6px;
   margin: 24px 0;
   font-size: 13px;
   line-height: 1.7;
@@ -163,9 +161,9 @@ export default `/* 06. 杂志 — 黑白杂志：细线分节、居中拉引、�
   color: #333333;
 }
 #nice pre.custom {
-  background: #f5f5f5;
+  background: #f7f7f6;
   border: none;
-  border-radius: 0px;
+  border-radius: 6px;
   margin: 24px 0;
   padding: 0;
 }
@@ -190,16 +188,15 @@ export default `/* 06. 杂志 — 黑白杂志：细线分节、居中拉引、�
   display: block;
   max-width: 100%;
   margin: 0 auto;
-  border-radius: 0px;
+  border-radius: 2px;
 }
 #nice figcaption {
   margin-top: 10px;
   font-size: 12.5px;
   line-height: 1.6;
   color: #999999;
-  text-align: left;
+  text-align: center;
   letter-spacing: 0.04em;
-  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
 }
 
 /* ========== 表格 ========== */
@@ -210,7 +207,7 @@ export default `/* 06. 杂志 — 黑白杂志：细线分节、居中拉引、�
   border-collapse: collapse;
   font-size: 13.5px;
   line-height: 1.6;
-  color: #262626;
+  color: #333333;
 }
 #nice table tr { border: 0; background: #ffffff; }
 #nice table tr:nth-child(2n) { background: #ffffff; }
@@ -223,18 +220,10 @@ export default `/* 06. 杂志 — 黑白杂志：细线分节、居中拉引、�
 }
 #nice table tr th { background: none; font-weight: 700; color: #111111; }
 
-#nice table { font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; }
-#nice table tr th { font-size: 12.5px; border-bottom: 1.5px solid #222222; }
-#nice table tr td { border-bottom: 1px solid #e8e8e8; }
+#nice table tr th { border-bottom: 1.5px solid #111111; }
+#nice table tr td { border-bottom: 1px solid #eeeeee; }
 
 /* ========== 分隔线 ========== */
-#nice hr {
-  border: none;
-  width: 28px;
-  height: 3px;
-  margin: 48px auto;
-  background: var(--accent);
-}
 
 /* 悬挂的引号 / 角标需要露出引用框 */
 #nice blockquote { overflow: visible; }

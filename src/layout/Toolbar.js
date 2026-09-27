@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import {observer, inject} from "mobx-react";
+import React, { Component } from "react";
+import { observer, inject } from "mobx-react";
 import classnames from "classnames";
 
 import Bold from "../component/Toolbar/Bold";
@@ -14,16 +14,17 @@ import LinkToFoot from "../component/Toolbar/LinkToFoot";
 import InlineCode from "../component/Toolbar/InlineCode";
 import Theme from "../component/MenuLeft/Theme";
 import CodeTheme from "../component/MenuLeft/CodeTheme";
+import Palette from "../component/MenuLeft/Palette";
 import "./Navbar.css";
 
 @inject("view")
 @observer
 class Toolbar extends Component {
   render() {
-    const {token} = this.props;
+    const { token } = this.props;
     const niceNavbarClass = classnames({
       "nice-navbar": true,
-      "nice-toolbar": true,
+      "nice-toolbar": true
     });
     return (
       <div className={niceNavbarClass}>
@@ -41,6 +42,7 @@ class Toolbar extends Component {
         </div>
         <div className="nice-right-nav">
           <Theme token={token} />
+          <Palette />
           <CodeTheme />
         </div>
       </div>

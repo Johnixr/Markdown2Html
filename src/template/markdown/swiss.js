@@ -1,10 +1,18 @@
-export default `/* 03. 瑞士 — 国际主义网格：粗黑标题、红方块、拉引式引文 */
+export default `/* 03. 瑞士 — 国际主义：方块章节、短横领起的引用、方形列表 */
+/* 主题色：--accent 主色，--accent-soft 浅色（只用于线条和小装饰）；编辑器「主题色」菜单可一键替换 */
+/* ---------- 装饰（渲染时注入，占位符 {n} {nn} {cn} {p}） ---------- */
+
+/* @decor blockquote.before
+<section class="nice-q-before"><svg width="24" height="2" viewBox="0 0 24 2" style="display:block;margin:0 0 12px;"><rect width="24" height="2" style="fill:var(--accent)"/></svg></section>
+*/
 
 /* ========== 全局 ========== */
 #nice {
+  --accent: #d63a2a;
+  --accent-soft: #f2c7c0;
   font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 15.5px;
-  color: #1f1f1f;
+  color: #262626;
   line-height: 1.8;
   letter-spacing: 0;
   padding: 0 8px;
@@ -13,21 +21,21 @@ export default `/* 03. 瑞士 — 国际主义网格：粗黑标题、红方块�
   text-align: left;
 }
 
-/* 段落 */
 #nice p {
   font-size: 15.5px;
   line-height: 1.8;
-  color: #1f1f1f;
+  color: #262626;
   margin: 20px 0;
   padding: 0;
   text-align: left;
 }
 
-/* 标题通用 */
+/* ========== 标题 ========== */
 #nice h1, #nice h2, #nice h3, #nice h4, #nice h5, #nice h6 {
   color: #111111;
   padding: 0;
   text-align: left;
+  letter-spacing: 0;
 }
 #nice h1 .prefix, #nice h2 .prefix, #nice h3 .prefix,
 #nice h4 .prefix, #nice h5 .prefix, #nice h6 .prefix,
@@ -35,42 +43,38 @@ export default `/* 03. 瑞士 — 国际主义网格：粗黑标题、红方块�
 #nice h4 .suffix, #nice h5 .suffix, #nice h6 .suffix {
   display: none;
 }
-
-/* ========== 标题 ========== */
+/* 一级标题保持朴素：公众号标题在文章顶部，正文里少用 */
 #nice h1 {
-  font-size: 30px;
-  font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  border-top: 6px solid #111111;
-  padding-top: 14px;
-  margin: 48px 0 24px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.45;
+  margin: 36px 0 16px;
 }
+#nice h4 {
+  font-size: 15.5px;
+  font-weight: 700;
+  margin: 24px 0 8px;
+}
+
 #nice h2 {
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 800;
-  line-height: 1.3;
+  line-height: 1.35;
   letter-spacing: -0.01em;
   margin: 48px 0 16px;
 }
 #nice h2 .prefix {
   display: block;
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   margin-bottom: 14px;
-  background: #e3342f;
+  background: var(--accent);
 }
 #nice h3 {
-  font-size: 15px;
+  font-size: 15.5px;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  color: #e3342f;
+  letter-spacing: 0.04em;
   margin: 30px 0 8px;
-}
-#nice h4 {
-  font-size: 15px;
-  font-weight: 700;
-  margin: 22px 0 6px;
 }
 
 /* ========== 行内 ========== */
@@ -80,17 +84,16 @@ export default `/* 03. 瑞士 — 国际主义网格：粗黑标题、红方块�
 }
 #nice em {
   font-style: italic;
-  color: #1f1f1f;
+  color: #262626;
 }
 #nice em strong, #nice strong em {
   color: #111111;
 }
 #nice del {
-  color: #888888;
-  text-decoration: line-through;
+  color: #999999;
 }
 #nice a {
-  color: #e3342f;
+  color: var(--accent);
   font-weight: 400;
   text-decoration: none;
   border-bottom: none;
@@ -99,7 +102,7 @@ export default `/* 03. 瑞士 — 国际主义网格：粗黑标题、红方块�
 #nice p code, #nice li code, #nice blockquote code, #nice td code {
   font-family: 'SF Mono', Menlo, Consolas, 'PingFang SC', monospace;
   font-size: 0.86em;
-  color: #e3342f;
+  color: #262626;
   background: #f2f2f2;
   padding: 2px 5px;
   margin: 0 2px;
@@ -111,7 +114,7 @@ export default `/* 03. 瑞士 — 国际主义网格：粗黑标题、红方块�
 #nice ul, #nice ol {
   margin: 20px 0;
   padding-left: 1.3em;
-  color: #1f1f1f;
+  color: #262626;
 }
 #nice ul { list-style-type: square; }
 #nice ul ul { list-style-type: square; margin: 4px 0; }
@@ -119,7 +122,7 @@ export default `/* 03. 瑞士 — 国际主义网格：粗黑标题、红方块�
 #nice li section {
   font-size: 15.5px;
   line-height: 1.8;
-  color: #1f1f1f;
+  color: #262626;
   font-weight: 400;
   margin: 6px 0;
   text-align: left;
@@ -127,21 +130,21 @@ export default `/* 03. 瑞士 — 国际主义网格：粗黑标题、红方块�
 
 /* ========== 引用 ========== */
 #nice blockquote {
-  margin: 32px 0;
-  padding: 14px 0 4px;
+  margin: 30px 0;
+  padding: 0;
   border: none;
-  border-top: 2px solid #111111;
   background: none;
 }
+
 #nice blockquote p, #nice blockquote li section {
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1.6;
-  color: #111111;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #262626;
   margin: 6px 0;
+  font-weight: 500;
 }
 
-/* ========== 代码块（微信代码主题 + 高亮主题两种结构） ========== */
+/* ========== 代码块（微信代码主题 / 高亮主题两种结构） ========== */
 #nice .code-snippet__fix {
   background: #f4f4f4;
   border: none;
@@ -192,7 +195,7 @@ export default `/* 03. 瑞士 — 国际主义网格：粗黑标题、红方块�
   margin-top: 10px;
   font-size: 12.5px;
   line-height: 1.6;
-  color: #666666;
+  color: #999999;
   text-align: left;
   letter-spacing: 0.04em;
 }
@@ -205,7 +208,7 @@ export default `/* 03. 瑞士 — 国际主义网格：粗黑标题、红方块�
   border-collapse: collapse;
   font-size: 13.5px;
   line-height: 1.6;
-  color: #1f1f1f;
+  color: #262626;
 }
 #nice table tr { border: 0; background: #ffffff; }
 #nice table tr:nth-child(2n) { background: #ffffff; }
@@ -216,32 +219,57 @@ export default `/* 03. 瑞士 — 国际主义网格：粗黑标题、红方块�
   text-align: left;
   min-width: 56px;
 }
-#nice table tr th { background: none; font-weight: 700; }
+#nice table tr th { background: none; font-weight: 700; color: #111111; }
 
-#nice table tr th {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: #111111;
-  border-bottom: 2px solid #111111;
-}
-#nice table tr td { border-bottom: 1px solid #dddddd; }
+#nice table tr th { font-size: 12px; letter-spacing: 0.06em; border-bottom: 1.5px solid #262626; }
+#nice table tr td { border-bottom: 1px solid #e6e6e6; }
 
 /* ========== 分隔线 ========== */
 #nice hr {
   border: none;
-  height: 2px;
-  margin: 44px 0;
-  background: #111111;
+  height: 1px;
+  width: 100%;
+  margin: 44px auto;
+  background: #e2e2e2;
 }
+
+/* 悬挂的引号 / 角标需要露出引用框 */
+#nice blockquote { overflow: visible; }
+
+/* ========== 嵌套引用只缩进，不重复装饰 ========== */
+#nice blockquote blockquote {
+  margin: 10px 0 4px;
+  padding: 0 0 0 1em;
+  border: none;
+  background: none;
+  box-shadow: none;
+  text-align: inherit;
+}
+#nice blockquote blockquote::before { content: none; display: none; }
+
+/* ========== 装饰容器 ========== */
+#nice .nice-divider {
+  margin: 44px 0;
+  text-align: center;
+  line-height: 0;
+}
+#nice .nice-end {
+  margin: 48px 0 8px;
+  text-align: center;
+  line-height: 0;
+}
+#nice .nice-q-before, #nice .nice-q-after {
+  line-height: 0;
+}
+#nice .nice-q-after { text-align: right; }
 
 /* ========== 脚注 / 参考资料 ========== */
 #nice .footnote-word {
-  color: #e3342f;
+  color: var(--accent);
   font-weight: 400;
 }
 #nice .footnote-ref {
-  color: #e3342f;
+  color: var(--accent);
   font-weight: 400;
   font-size: 11px;
 }
@@ -255,6 +283,7 @@ export default `/* 03. 瑞士 — 国际主义网格：粗黑标题、红方块�
   padding: 0;
   margin: 48px 0 12px;
   text-align: left;
+  text-decoration: none;
 }
 #nice .footnotes-sep:before {
   content: "参考资料";
@@ -267,18 +296,6 @@ export default `/* 03. 瑞士 — 国际主义网格：粗黑标题、红方块�
 #nice .footnote-item p, #nice .footnote-num {
   font-size: 12px;
   line-height: 1.8;
-  color: #888888;
-}
-
-#nice blockquote blockquote {
-  margin: 10px 0 4px;
-  padding: 0 0 0 1em;
-  border: none;
-  background: none;
-  text-align: inherit;
-}
-#nice blockquote blockquote::before {
-  content: none;
-  display: none;
+  color: #999999;
 }
 `;

@@ -19,27 +19,30 @@ import markdownUrlAddSpan from "./markdown-it-urlspan";
 export const axiosGithub = axios.create({
   baseURL: "https://api.github.com",
   headers: {
-    Accept: "application/json",
-  },
+    Accept: "application/json"
+  }
 });
 
 export const axiosJSON = axios.create({
   headers: {
     Accept: "application/json",
-    "Content-Type": "application/json",
-  },
+    "Content-Type": "application/json"
+  }
 });
 
 export const axiosMdnice = axios.create({
   // baseURL: process.env.NODE_ENV === "development" ? "http://localhost:8081" : "https://math.mdnice.com",
-  baseURL: process.env.NODE_ENV === "development" ? "https://math.mdnice.com" : "https://math.mdnice.com",
+  baseURL:
+    process.env.NODE_ENV === "development"
+      ? "https://math.mdnice.com"
+      : "https://math.mdnice.com"
 });
 
 export const queryParse = (search = window.location.search) => {
   if (!search) return {};
   const queryString = search[0] === "?" ? search.substring(1) : search;
   const query = {};
-  queryString.split("&").forEach((queryStr) => {
+  queryString.split("&").forEach(queryStr => {
     const [key, value] = queryStr.split("=");
     /* istanbul ignore else */
     if (key) query[decodeURIComponent(key)] = decodeURIComponent(value);
@@ -47,11 +50,11 @@ export const queryParse = (search = window.location.search) => {
   return query;
 };
 
-export const transCode = (str) => {
+export const transCode = str => {
   return window.btoa(unescape(encodeURIComponent(str)));
 };
 
-export const deCode = (str) => {
+export const deCode = str => {
   return decodeURIComponent(escape(window.atob(str)));
 };
 
@@ -64,7 +67,11 @@ export const markdownParserWechat = new MarkdownIt({
     const codeLines = [];
     const numbers = [];
     for (let i = 0; i < lines.length - 1; i++) {
-      codeLines.push('<code><span class="code-snippet_outer">' + (lines[i] || "<br>") + "</span></code>");
+      codeLines.push(
+        '<code><span class="code-snippet_outer">' +
+          (lines[i] || "<br>") +
+          "</span></code>"
+      );
       numbers.push("<li></li>");
     }
     return (
@@ -78,7 +85,7 @@ export const markdownParserWechat = new MarkdownIt({
       codeLines.join("") +
       "</pre></section>"
     );
-  },
+  }
 });
 
 markdownParserWechat
@@ -91,10 +98,10 @@ markdownParserWechat
   .use(markdownItTableOfContents, {
     transformLink: () => "",
     includeLevel: [2, 3],
-    markerPattern: /^\[toc\]/im,
+    markerPattern: /^\[toc\]/im
   }) // TOC仅支持二级和三级标题
   .use(markdownItRuby) // 注音符号
-  .use(markdownItImplicitFigures, {figcaption: true}) // 图示
+  .use(markdownItImplicitFigures, { figcaption: true }) // 图示
   .use(markdownItDeflist) // 定义列表
   .use(markdownItLiReplacer) // li 标签中加入 p 标签
   .use(markdownItImageFlow) // 横屏移动插件
@@ -115,13 +122,21 @@ export const markdownParser = new MarkdownIt({
           .value.replace(/\n/g, "<br/>") // 换行用br表示
           .replace(/\s/g, "&nbsp;") // 用nbsp替换空格
           .replace(/span&nbsp;/g, "span "); // span标签修复
-        return '<pre class="custom"><code class="hljs">' + formatted + "</code></pre>";
+        return (
+          '<pre class="custom"><code class="hljs">' +
+          formatted +
+          "</code></pre>"
+        );
       } catch (e) {
         console.log(e);
       }
     }
-    return '<pre class="custom"><code class="hljs">' + markdownParser.utils.escapeHtml(str) + "</code></pre>";
-  },
+    return (
+      '<pre class="custom"><code class="hljs">' +
+      markdownParser.utils.escapeHtml(str) +
+      "</code></pre>"
+    );
+  }
 });
 
 markdownParser
@@ -133,10 +148,10 @@ markdownParser
   .use(markdownItTableOfContents, {
     transformLink: () => "",
     includeLevel: [2, 3],
-    markerPattern: /^\[toc\]/im,
+    markerPattern: /^\[toc\]/im
   }) // TOC仅支持二级和三级标题
   .use(markdownItRuby) // 注音符号
-  .use(markdownItImplicitFigures, {figcaption: true}) // 图示
+  .use(markdownItImplicitFigures, { figcaption: true }) // 图示
   .use(markdownItDeflist) // 定义列表
   .use(markdownItLiReplacer) // li 标签中加入 p 标签
   .use(markdownItImageFlow) // 横屏移动插件
@@ -171,7 +186,7 @@ export const b64toBlob = (b64Data, contentType = "", sliceSize = 512) => {
     byteArrays.push(byteArray);
   }
 
-  const blob = new Blob(byteArrays, {type: contentType});
+  const blob = new Blob(byteArrays, { type: contentType });
   return blob;
 };
 
@@ -183,7 +198,7 @@ export const toBlob = (base64, fileType) => {
   while (n--) {
     u8arr[n] = bytes.charCodeAt(n);
   }
-  return new Blob([u8arr], {type: fileType});
+  return new Blob([u8arr], { type: fileType });
 };
 
 export const dateFormat = (date, fmt) => {
@@ -194,14 +209,20 @@ export const dateFormat = (date, fmt) => {
     "m+": date.getMinutes(), // 分
     "s+": date.getSeconds(), // 秒
     "q+": Math.floor((date.getMonth() + 3) / 3), // 季度
-    S: date.getMilliseconds(), // 毫秒
+    S: date.getMilliseconds() // 毫秒
   };
   if (/(y+)/.test(fmt)) {
-    fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+    fmt = fmt.replace(
+      RegExp.$1,
+      (date.getFullYear() + "").substr(4 - RegExp.$1.length)
+    );
   }
   for (var k in o) {
     if (new RegExp("(" + k + ")").test(fmt)) {
-      fmt = fmt.replace(RegExp.$1, RegExp.$1.length === 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
+      fmt = fmt.replace(
+        RegExp.$1,
+        RegExp.$1.length === 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length)
+      );
     }
   }
   return fmt;
@@ -245,7 +266,14 @@ export const url2Blob = (src, cb) => {
 // 是否为PC端
 export const isPC = () => {
   var userAgentInfo = navigator.userAgent;
-  var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+  var Agents = [
+    "Android",
+    "iPhone",
+    "SymbianOS",
+    "Windows Phone",
+    "iPad",
+    "iPod"
+  ];
   var flag = true;
   for (var v = 0; v < Agents.length; v++) {
     if (userAgentInfo.indexOf(Agents[v]) > 0) {
@@ -261,24 +289,31 @@ export const getOSSName = (originName, namespace = "") => {
   let key = "";
   if (names.length > 1) {
     const suffix = names.pop();
-    key = `${names.join(".")}_${dateFormat(new Date(), "yyyyMMddhhmmss")}.${suffix}`;
+    key = `${names.join(".")}_${dateFormat(
+      new Date(),
+      "yyyyMMddhhmmss"
+    )}.${suffix}`;
   } else {
     key = originName + "_" + dateFormat(new Date(), "yyyyMMddhhmmss");
   }
   return `${namespace}${key}`;
 };
 
-export const addStyleLabel = (styleLabels) => {
-  const add = (name) => {
+export const addStyleLabel = styleLabels => {
+  const add = name => {
     const style = document.createElement("style");
     style.id = name;
     const head = document.getElementsByTagName("head")[0];
     head.appendChild(style);
   };
-  styleLabels.forEach((name) => add(name));
+  styleLabels.forEach(name => add(name));
 };
 
 export const updateMathjax = () => {
+  // MathJax 异步启动，启动完成前 texReset 还不存在（启动时会自己排版一次）
+  if (!window.MathJax || typeof window.MathJax.texReset !== "function") {
+    return;
+  }
   window.MathJax.texReset();
   window.MathJax.typesetClear();
   window.MathJax.typesetPromise();
@@ -300,7 +335,7 @@ export const download = (content, filename) => {
 
 export const isPlatformWindows = /windows|win32/i.test(navigator.userAgent);
 
-export const wordCalc = (data) => {
+export const wordCalc = data => {
   const pattern = /[a-zA-Z0-9_\u0392-\u03c9\u0410-\u04F9]+|[\u4E00-\u9FFF\u3400-\u4dbf\uf900-\ufaff\u3040-\u309f\uac00-\ud7af]+/g;
   const m = data.match(pattern);
   let count = 0;

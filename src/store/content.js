@@ -1,6 +1,21 @@
-import {observable, action} from "mobx";
-import {CONTENT, STYLE, MARKDOWN_THEME_ID, BASIC_THEME_ID, STYLE_LABELS, THEME_LIST} from "../utils/constant";
-import {replaceStyle, addStyleLabel} from "../utils/helper";
+import { observable, action } from "mobx";
+import {
+  CONTENT,
+  STYLE,
+  MARKDOWN_THEME_ID,
+  BASIC_THEME_ID,
+  PALETTE_THEME_ID,
+  STYLE_LABELS,
+  THEME_LIST
+} from "../utils/constant";
+import {
+  PALETTES,
+  PALETTE_ID,
+  PALETTE_CUSTOM,
+  customPalette,
+  paletteCss
+} from "../utils/palette";
+import { replaceStyle, addStyleLabel } from "../utils/helper";
 import TEMPLATE from "../template/index";
 
 class Content {
@@ -12,27 +27,48 @@ class Content {
 
   @observable markdownEditor;
 
+  // 主题色：default 表示用主题自带的颜色；custom 为自选色
+  @observable paletteId;
+
+  @observable paletteCustom;
+
   @action
-  setThemeList = (themeList) => {
+  setThemeList = themeList => {
     this.themeList = themeList;
     window.localStorage.setItem(THEME_LIST, JSON.stringify(themeList));
   };
 
   @action
-  setMarkdownEditor = (markdownEditor) => {
+  setMarkdownEditor = markdownEditor => {
     this.markdownEditor = markdownEditor;
   };
 
   @action
-  setContent = (content) => {
+  setContent = content => {
     this.content = content;
     window.localStorage.setItem(CONTENT, content);
   };
 
   @action
-  setStyle = (style) => {
+  setStyle = style => {
     this.style = style;
     replaceStyle(MARKDOWN_THEME_ID, style);
+  };
+
+  @action
+  setPalette = (paletteId, customAccent) => {
+    this.paletteId = paletteId;
+    window.localStorage.setItem(PALETTE_ID, paletteId);
+    if (customAccent) {
+      this.paletteCustom = customAccent;
+      window.localStorage.setItem(PALETTE_CUSTOM, customAccent);
+    }
+    replaceStyle(PALETTE_THEME_ID, paletteCss(this.currentPalette()));
+  };
+
+  currentPalette = () => {
+    if (this.paletteId === "custom") return customPalette(this.paletteCustom);
+    return PALETTES.find(p => p.id === this.paletteId) || PALETTES[0];
   };
 
   // 自定义样式
@@ -60,9 +96,9 @@ if (!window.localStorage.getItem(THEME_LIST)) {
   window.localStorage.setItem(
     THEME_LIST,
     JSON.stringify([
-      {themeId: "normal", name: "默认主题", css: TEMPLATE.normal},
-      {themeId: "custom", name: "自定义", css: TEMPLATE.custom},
-    ]),
+      { themeId: "normal", name: "默认主题", css: TEMPLATE.normal },
+      { themeId: "custom", name: "自定义", css: TEMPLATE.custom }
+    ])
   );
 }
 
@@ -75,5 +111,9 @@ addStyleLabel(STYLE_LABELS);
 replaceStyle(BASIC_THEME_ID, TEMPLATE.basic);
 
 store.content = window.localStorage.getItem(CONTENT);
+
+// 初始化主题色
+store.paletteCustom = window.localStorage.getItem(PALETTE_CUSTOM) || "#9c5b2e";
+store.setPalette(window.localStorage.getItem(PALETTE_ID) || "default");
 
 export default store;

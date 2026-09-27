@@ -1,7 +1,19 @@
-export default `/* 04. 学刊 — 期刊版式：宋体标题、藏青单色、三线表 */
+export default `/* 04. 学刊 — 期刊版式：章节自动编号、三线表、灰底按语 */
+/* 主题色：--accent 主色，--accent-soft 浅色（只用于线条和小装饰）；编辑器「主题色」菜单可一键替换 */
+/* ---------- 装饰（渲染时注入，占位符 {n} {nn} {cn} {p}） ---------- */
+
+/* @decor h2.prefix
+{n}
+*/
+
+/* @decor h3.prefix
+{p}.{n}
+*/
 
 /* ========== 全局 ========== */
 #nice {
+  --accent: #9d2d45;
+  --accent-soft: #e8c5ce;
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
   font-size: 15.5px;
   color: #333333;
@@ -13,7 +25,6 @@ export default `/* 04. 学刊 — 期刊版式：宋体标题、藏青单色、�
   text-align: justify;
 }
 
-/* 段落 */
 #nice p {
   font-size: 15.5px;
   line-height: 1.85;
@@ -23,11 +34,12 @@ export default `/* 04. 学刊 — 期刊版式：宋体标题、藏青单色、�
   text-align: justify;
 }
 
-/* 标题通用 */
+/* ========== 标题 ========== */
 #nice h1, #nice h2, #nice h3, #nice h4, #nice h5, #nice h6 {
-  color: #1f3a5f;
+  color: #1a1a1a;
   padding: 0;
   text-align: left;
+  letter-spacing: 0.02em;
 }
 #nice h1 .prefix, #nice h2 .prefix, #nice h3 .prefix,
 #nice h4 .prefix, #nice h5 .prefix, #nice h6 .prefix,
@@ -35,69 +47,75 @@ export default `/* 04. 学刊 — 期刊版式：宋体标题、藏青单色、�
 #nice h4 .suffix, #nice h5 .suffix, #nice h6 .suffix {
   display: none;
 }
-
-/* ========== 标题 ========== */
+/* 一级标题保持朴素：公众号标题在文章顶部，正文里少用 */
 #nice h1 {
-  font-family: 'Songti SC', 'Noto Serif SC', 'Source Han Serif SC', STSong, Georgia, serif;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 1.45;
-  text-align: center;
-  border-top: 2px solid #1f3a5f;
-  border-bottom: 1px solid #1f3a5f;
-  padding: 14px 0;
-  margin: 48px 0 28px;
+  margin: 36px 0 16px;
 }
+#nice h4 {
+  font-size: 15.5px;
+  font-weight: 700;
+  margin: 24px 0 8px;
+}
+
 #nice h2 {
   font-family: 'Songti SC', 'Noto Serif SC', 'Source Han Serif SC', STSong, Georgia, serif;
   font-size: 19px;
   font-weight: 700;
   line-height: 1.5;
-  border-bottom: 1px solid #d5dce6;
-  padding-bottom: 8px;
+  border-bottom: 1px solid #ececec;
+  padding-bottom: 10px;
   margin: 44px 0 18px;
+}
+#nice h2 .prefix {
+  display: inline;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  color: var(--accent);
+  margin-right: 12px;
 }
 #nice h3 {
   font-size: 15.5px;
   font-weight: 700;
-  color: #1f3a5f;
   margin: 30px 0 10px;
 }
-#nice h4 {
-  font-size: 15px;
-  font-weight: 700;
-  color: #333333;
-  margin: 22px 0 6px;
+#nice h3 .prefix {
+  display: inline;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  color: var(--accent);
+  margin-right: 10px;
 }
 
 /* ========== 行内 ========== */
 #nice strong {
   font-weight: 700;
-  color: #1f3a5f;
+  color: #1a1a1a;
 }
 #nice em {
   font-style: italic;
   color: #333333;
 }
 #nice em strong, #nice strong em {
-  color: #1f3a5f;
+  color: #1a1a1a;
 }
 #nice del {
-  color: #7a8699;
-  text-decoration: line-through;
+  color: #999999;
 }
 #nice a {
-  color: #1f3a5f;
+  color: #1a1a1a;
   font-weight: 400;
   text-decoration: none;
-  border-bottom: 1px dotted #1f3a5f;
+  border-bottom: 1px solid var(--accent-soft);
   word-wrap: break-word;
 }
 #nice p code, #nice li code, #nice blockquote code, #nice td code {
   font-family: 'SF Mono', Menlo, Consolas, 'PingFang SC', monospace;
   font-size: 0.86em;
-  color: #1f3a5f;
-  background: #f1f4f8;
+  color: #444444;
+  background: #f2f2f1;
   padding: 2px 5px;
   margin: 0 2px;
   border-radius: 3px;
@@ -127,20 +145,21 @@ export default `/* 04. 学刊 — 期刊版式：宋体标题、藏青单色、�
   margin: 26px 0;
   padding: 14px 18px;
   border: none;
-  background: #f3f6f9;
+  background: #f5f5f5;
   border-radius: 2px;
 }
+
 #nice blockquote p, #nice blockquote li section {
   font-size: 14.5px;
   line-height: 1.8;
-  color: #44546a;
-  margin: 4px 0;
+  color: #555555;
+  margin: 6px 0;
 }
 
-/* ========== 代码块（微信代码主题 + 高亮主题两种结构） ========== */
+/* ========== 代码块（微信代码主题 / 高亮主题两种结构） ========== */
 #nice .code-snippet__fix {
-  background: #f7f9fb;
-  border: 1px solid #e3e8ee;
+  background: #f7f7f6;
+  border: 1px solid #ececec;
   border-radius: 4px;
   margin: 24px 0;
   font-size: 13px;
@@ -155,8 +174,8 @@ export default `/* 04. 学刊 — 期刊版式：宋体标题、藏青单色、�
   color: #333333;
 }
 #nice pre.custom {
-  background: #f7f9fb;
-  border: 1px solid #e3e8ee;
+  background: #f7f7f6;
+  border: 1px solid #ececec;
   border-radius: 4px;
   margin: 24px 0;
   padding: 0;
@@ -188,7 +207,7 @@ export default `/* 04. 学刊 — 期刊版式：宋体标题、藏青单色、�
   margin-top: 10px;
   font-size: 12.5px;
   line-height: 1.6;
-  color: #6b7a90;
+  color: #999999;
   text-align: center;
   letter-spacing: 0.04em;
 }
@@ -212,30 +231,57 @@ export default `/* 04. 学刊 — 期刊版式：宋体标题、藏青单色、�
   text-align: left;
   min-width: 56px;
 }
-#nice table tr th { background: none; font-weight: 700; }
+#nice table tr th { background: none; font-weight: 700; color: #1a1a1a; }
 
-#nice table { border-top: 2px solid #1f3a5f; border-bottom: 2px solid #1f3a5f; }
-#nice table tr th {
-  font-weight: 700;
-  color: #1f3a5f;
-  border-bottom: 1px solid #1f3a5f;
-}
+#nice table { border-top: 1.5px solid #1a1a1a; border-bottom: 1.5px solid #1a1a1a; }
+#nice table tr th { border-bottom: 1px solid #1a1a1a; }
 
 /* ========== 分隔线 ========== */
 #nice hr {
   border: none;
-  border-top: 3px double #c9d2de;
-  height: 0;
-  margin: 40px 0;
+  height: 1px;
+  width: 100%;
+  margin: 40px auto;
+  background: #ececec;
 }
+
+/* 悬挂的引号 / 角标需要露出引用框 */
+#nice blockquote { overflow: visible; }
+
+/* ========== 嵌套引用只缩进，不重复装饰 ========== */
+#nice blockquote blockquote {
+  margin: 10px 0 4px;
+  padding: 0 0 0 1em;
+  border: none;
+  background: none;
+  box-shadow: none;
+  text-align: inherit;
+}
+#nice blockquote blockquote::before { content: none; display: none; }
+
+/* ========== 装饰容器 ========== */
+#nice .nice-divider {
+  margin: 44px 0;
+  text-align: center;
+  line-height: 0;
+}
+#nice .nice-end {
+  margin: 48px 0 8px;
+  text-align: center;
+  line-height: 0;
+}
+#nice .nice-q-before, #nice .nice-q-after {
+  line-height: 0;
+}
+#nice .nice-q-after { text-align: right; }
 
 /* ========== 脚注 / 参考资料 ========== */
 #nice .footnote-word {
-  color: #1f3a5f;
+  color: #1a1a1a;
   font-weight: 400;
 }
 #nice .footnote-ref {
-  color: #1f3a5f;
+  color: var(--accent);
   font-weight: 400;
   font-size: 11px;
 }
@@ -243,12 +289,13 @@ export default `/* 04. 学刊 — 期刊版式：宋体标题、藏青单色、�
   display: block;
   font-family: inherit;
   font-size: 14px;
-  color: #1f3a5f;
+  color: #1a1a1a;
   background: none;
   border: none;
   padding: 0;
   margin: 48px 0 12px;
   text-align: left;
+  text-decoration: none;
 }
 #nice .footnotes-sep:before {
   content: "参考资料";
@@ -256,23 +303,11 @@ export default `/* 04. 学刊 — 期刊版式：宋体标题、藏青单色、�
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: #1f3a5f;
+  color: #1a1a1a;
 }
 #nice .footnote-item p, #nice .footnote-num {
   font-size: 12px;
   line-height: 1.8;
-  color: #7a8699;
-}
-
-#nice blockquote blockquote {
-  margin: 10px 0 4px;
-  padding: 0 0 0 1em;
-  border: none;
-  background: none;
-  text-align: inherit;
-}
-#nice blockquote blockquote::before {
-  content: none;
-  display: none;
+  color: #999999;
 }
 `;

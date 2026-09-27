@@ -1,7 +1,15 @@
-export default `/* 10. 留白 — 安静克制：宽字距、居中标题、细竖线引导 */
+export default `/* 08. 留白 — 安静克制：宽字距、居中标题、细线里缓缓下落的点 */
+/* 主题色：--accent 主色，--accent-soft 浅色（只用于线条和小装饰）；编辑器「主题色」菜单可一键替换 */
+/* ---------- 装饰（渲染时注入，占位符 {n} {nn} {cn} {p}） ---------- */
+
+/* @decor h2.suffix
+<svg width="9" height="30" viewBox="0 0 9 30" style="display:block;margin:14px auto 0;"><line x1="4.5" y1="0" x2="4.5" y2="30" stroke-width="1" style="stroke:var(--accent-soft)"/><circle cx="4.5" cy="3" r="2.2" style="fill:var(--accent)"><animate attributeName="cy" values="3;27;27" keyTimes="0;0.7;1" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.15;0.6;0.72;1" dur="3s" repeatCount="indefinite"/></circle></svg>
+*/
 
 /* ========== 全局 ========== */
 #nice {
+  --accent: #8a7560;
+  --accent-soft: #e3dad0;
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
   font-size: 15px;
   color: #444444;
@@ -13,7 +21,6 @@ export default `/* 10. 留白 — 安静克制：宽字距、居中标题、细�
   text-align: left;
 }
 
-/* 段落 */
 #nice p {
   font-size: 15px;
   line-height: 2;
@@ -23,11 +30,12 @@ export default `/* 10. 留白 — 安静克制：宽字距、居中标题、细�
   text-align: left;
 }
 
-/* 标题通用 */
+/* ========== 标题 ========== */
 #nice h1, #nice h2, #nice h3, #nice h4, #nice h5, #nice h6 {
   color: #222222;
   padding: 0;
   text-align: left;
+  letter-spacing: 0.05em;
 }
 #nice h1 .prefix, #nice h2 .prefix, #nice h3 .prefix,
 #nice h4 .prefix, #nice h5 .prefix, #nice h6 .prefix,
@@ -35,16 +43,19 @@ export default `/* 10. 留白 — 安静克制：宽字距、居中标题、细�
 #nice h4 .suffix, #nice h5 .suffix, #nice h6 .suffix {
   display: none;
 }
-
-/* ========== 标题 ========== */
+/* 一级标题保持朴素：公众号标题在文章顶部，正文里少用 */
 #nice h1 {
-  font-size: 22px;
-  font-weight: 600;
-  line-height: 1.6;
-  letter-spacing: 0.14em;
-  text-align: center;
-  margin: 60px 0 36px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.45;
+  margin: 36px 0 16px;
 }
+#nice h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 24px 0 8px;
+}
+
 #nice h2 {
   font-size: 17px;
   font-weight: 600;
@@ -53,24 +64,12 @@ export default `/* 10. 留白 — 安静克制：宽字距、居中标题、细�
   text-align: center;
   margin: 56px 0 28px;
 }
-#nice h2 .suffix {
-  display: block;
-  width: 1px;
-  height: 22px;
-  margin: 14px auto 0;
-  background: #c8bfb5;
-}
+#nice h2 .suffix { display: block; line-height: 0; }
 #nice h3 {
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.1em;
-  color: #8a7560;
   margin: 34px 0 12px;
-}
-#nice h4 {
-  font-size: 15px;
-  font-weight: 600;
-  margin: 24px 0 8px;
 }
 
 /* ========== 行内 ========== */
@@ -80,26 +79,25 @@ export default `/* 10. 留白 — 安静克制：宽字距、居中标题、细�
 }
 #nice em {
   font-style: normal;
-  color: #8a7560;
+  color: var(--accent);
 }
 #nice em strong, #nice strong em {
   color: #222222;
 }
 #nice del {
-  color: #a39d96;
-  text-decoration: line-through;
+  color: #999999;
 }
 #nice a {
-  color: #8a7560;
+  color: var(--accent);
   font-weight: 400;
   text-decoration: none;
-  border-bottom: 1px solid #e2dad1;
+  border-bottom: 1px solid var(--accent-soft);
   word-wrap: break-word;
 }
 #nice p code, #nice li code, #nice blockquote code, #nice td code {
   font-family: 'SF Mono', Menlo, Consolas, 'PingFang SC', monospace;
   font-size: 0.86em;
-  color: #6b5b4b;
+  color: #5e5145;
   background: #f5f3f0;
   padding: 2px 5px;
   margin: 0 2px;
@@ -133,15 +131,17 @@ export default `/* 10. 留白 — 安静克制：宽字距、居中标题、细�
   background: #faf9f7;
   text-align: center;
 }
+
 #nice blockquote p, #nice blockquote li section {
   font-size: 14.5px;
-  line-height: 1.95;
+  line-height: 1.8;
   color: #6b635b;
+  margin: 6px 0;
+  line-height: 1.95;
   text-align: center;
-  margin: 4px 0;
 }
 
-/* ========== 代码块（微信代码主题 + 高亮主题两种结构） ========== */
+/* ========== 代码块（微信代码主题 / 高亮主题两种结构） ========== */
 #nice .code-snippet__fix {
   background: #faf9f7;
   border: none;
@@ -192,7 +192,7 @@ export default `/* 10. 留白 — 安静克制：宽字距、居中标题、细�
   margin-top: 10px;
   font-size: 12.5px;
   line-height: 1.6;
-  color: #a39d96;
+  color: #999999;
   text-align: center;
   letter-spacing: 0.04em;
 }
@@ -216,15 +216,9 @@ export default `/* 10. 留白 — 安静克制：宽字距、居中标题、细�
   text-align: left;
   min-width: 56px;
 }
-#nice table tr th { background: none; font-weight: 700; }
+#nice table tr th { background: none; font-weight: 700; color: #222222; }
 
-#nice table tr th {
-  font-size: 12.5px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  color: #8a7560;
-  border-bottom: 1px solid #e2dad1;
-}
+#nice table tr th { font-size: 12.5px; font-weight: 500; letter-spacing: 0.08em; color: var(--accent); border-bottom: 1px solid #e2dad1; }
 #nice table tr td { border-bottom: 1px solid #f0ece7; }
 
 /* ========== 分隔线 ========== */
@@ -233,16 +227,46 @@ export default `/* 10. 留白 — 安静克制：宽字距、居中标题、细�
   height: 1px;
   width: 32px;
   margin: 52px auto;
-  background: #c8bfb5;
+  background: #cfc6bc;
 }
+
+/* 悬挂的引号 / 角标需要露出引用框 */
+#nice blockquote { overflow: visible; }
+
+/* ========== 嵌套引用只缩进，不重复装饰 ========== */
+#nice blockquote blockquote {
+  margin: 10px 0 4px;
+  padding: 0 0 0 1em;
+  border: none;
+  background: none;
+  box-shadow: none;
+  text-align: inherit;
+}
+#nice blockquote blockquote::before { content: none; display: none; }
+
+/* ========== 装饰容器 ========== */
+#nice .nice-divider {
+  margin: 44px 0;
+  text-align: center;
+  line-height: 0;
+}
+#nice .nice-end {
+  margin: 48px 0 8px;
+  text-align: center;
+  line-height: 0;
+}
+#nice .nice-q-before, #nice .nice-q-after {
+  line-height: 0;
+}
+#nice .nice-q-after { text-align: right; }
 
 /* ========== 脚注 / 参考资料 ========== */
 #nice .footnote-word {
-  color: #8a7560;
+  color: var(--accent);
   font-weight: 400;
 }
 #nice .footnote-ref {
-  color: #8a7560;
+  color: var(--accent);
   font-weight: 400;
   font-size: 11px;
 }
@@ -256,6 +280,7 @@ export default `/* 10. 留白 — 安静克制：宽字距、居中标题、细�
   padding: 0;
   margin: 48px 0 12px;
   text-align: left;
+  text-decoration: none;
 }
 #nice .footnotes-sep:before {
   content: "参考资料";
@@ -268,18 +293,6 @@ export default `/* 10. 留白 — 安静克制：宽字距、居中标题、细�
 #nice .footnote-item p, #nice .footnote-num {
   font-size: 12px;
   line-height: 1.8;
-  color: #a39d96;
-}
-
-#nice blockquote blockquote {
-  margin: 10px 0 4px;
-  padding: 0 0 0 1em;
-  border: none;
-  background: none;
-  text-align: inherit;
-}
-#nice blockquote blockquote::before {
-  content: none;
-  display: none;
+  color: #999999;
 }
 `;

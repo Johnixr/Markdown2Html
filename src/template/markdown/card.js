@@ -1,45 +1,41 @@
-export default `/* 06. 杂志 — 黑白杂志：细线分节、居中拉引、文末方块 */
+export default `/* 17. 卡片 — 纸片感：灰卡章节头+右侧序号、柔影白卡引用与图片 */
 /* 主题色：--accent 主色，--accent-soft 浅色（只用于线条和小装饰）；编辑器「主题色」菜单可一键替换 */
 /* ---------- 装饰（渲染时注入，占位符 {n} {nn} {cn} {p}） ---------- */
 
-/* @decor blockquote.before
-<section class="nice-q-before" style="text-align:center;"><svg width="22" height="18" viewBox="0 0 22 18" style="display:inline-block;margin-bottom:8px;"><text x="0" y="26" font-size="34" font-family="Georgia, serif" style="fill:var(--accent)">“</text></svg></section>
-*/
-
-/* @decor end
-<section class="nice-end"><svg width="9" height="9" viewBox="0 0 9 9" style="display:inline-block;"><rect width="9" height="9" style="fill:var(--accent)"/></svg></section>
+/* @decor h2.suffix
+{nn}
 */
 
 /* ========== 全局 ========== */
 #nice {
-  --accent: #262626;
-  --accent-soft: #d6d6d6;
-  font-family: 'Songti SC', 'Noto Serif SC', 'Source Han Serif SC', STSong, Georgia, serif;
-  font-size: 16px;
-  color: #262626;
-  line-height: 1.9;
-  letter-spacing: 0.03em;
+  --accent: #b07d25;
+  --accent-soft: #ecdcb8;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  font-size: 15.5px;
+  color: #333333;
+  line-height: 1.85;
+  letter-spacing: 0.02em;
   padding: 0 8px;
   background: #ffffff;
   word-break: break-word;
-  text-align: justify;
+  text-align: left;
 }
 
 #nice p {
-  font-size: 16px;
-  line-height: 1.9;
-  color: #262626;
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: #333333;
   margin: 20px 0;
   padding: 0;
-  text-align: justify;
+  text-align: left;
 }
 
 /* ========== 标题 ========== */
 #nice h1, #nice h2, #nice h3, #nice h4, #nice h5, #nice h6 {
-  color: #111111;
+  color: #161616;
   padding: 0;
   text-align: left;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
 }
 #nice h1 .prefix, #nice h2 .prefix, #nice h3 .prefix,
 #nice h4 .prefix, #nice h5 .prefix, #nice h6 .prefix,
@@ -55,44 +51,58 @@ export default `/* 06. 杂志 — 黑白杂志：细线分节、居中拉引、�
   margin: 36px 0 16px;
 }
 #nice h4 {
-  font-size: 16px;
+  font-size: 15.5px;
   font-weight: 700;
   margin: 24px 0 8px;
 }
 
 #nice h2 {
-  font-size: 22px;
-  font-weight: 800;
-  line-height: 1.4;
-  border-top: 1px solid #cfcfcf;
-  padding-top: 18px;
-  margin: 52px 0 20px;
+  display: flex;
+  align-items: center;
+  font-size: 17.5px;
+  font-weight: 700;
+  line-height: 1.5;
+  background: #f5f5f4;
+  border-radius: 10px;
+  padding: 11px 16px;
+  margin: 44px 0 18px;
+}
+#nice h2 .content { flex: 1; }
+#nice h2 .suffix {
+  display: block;
+  flex: none;
+  font-family: 'SF Mono', Menlo, Consolas, 'PingFang SC', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-left: 12px;
 }
 #nice h3 {
-  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  margin: 32px 0 10px;
+  margin: 28px 0 10px;
+}
+#nice h3 .content {
+  border-bottom: 2px solid var(--accent-soft);
 }
 
 /* ========== 行内 ========== */
 #nice strong {
   font-weight: 700;
-  color: #111111;
+  color: #161616;
 }
 #nice em {
   font-style: italic;
-  color: #555555;
+  color: #333333;
 }
 #nice em strong, #nice strong em {
-  color: #111111;
+  color: #161616;
 }
 #nice del {
   color: #999999;
 }
 #nice a {
-  color: #111111;
+  color: #161616;
   font-weight: 400;
   text-decoration: none;
   border-bottom: 1px solid var(--accent-soft);
@@ -102,7 +112,7 @@ export default `/* 06. 杂志 — 黑白杂志：细线分节、居中拉引、�
   font-family: 'SF Mono', Menlo, Consolas, 'PingFang SC', monospace;
   font-size: 0.86em;
   color: #444444;
-  background: #f2f2f2;
+  background: #f2f2f1;
   padding: 2px 5px;
   margin: 0 2px;
   border-radius: 3px;
@@ -113,15 +123,15 @@ export default `/* 06. 杂志 — 黑白杂志：细线分节、居中拉引、�
 #nice ul, #nice ol {
   margin: 20px 0;
   padding-left: 1.3em;
-  color: #262626;
+  color: #333333;
 }
 #nice ul { list-style-type: disc; }
 #nice ul ul { list-style-type: circle; margin: 4px 0; }
 #nice ol { list-style-type: decimal; }
 #nice li section {
-  font-size: 16px;
-  line-height: 1.9;
-  color: #262626;
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: #333333;
   font-weight: 400;
   margin: 6px 0;
   text-align: left;
@@ -129,31 +139,31 @@ export default `/* 06. 杂志 — 黑白杂志：细线分节、居中拉引、�
 
 /* ========== 引用 ========== */
 #nice blockquote {
-  margin: 36px 0;
-  padding: 0 16px;
-  border: none;
-  background: none;
-  text-align: center;
+  margin: 26px 0;
+  padding: 16px 20px;
+  border: 1px solid #f0f0f0;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
 }
 
 #nice blockquote p, #nice blockquote li section {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.8;
-  color: #111111;
+  color: #4a4a4a;
   margin: 6px 0;
-  font-weight: 700;
-  text-align: center;
 }
 
 /* ========== 代码块（微信代码主题 / 高亮主题两种结构） ========== */
 #nice .code-snippet__fix {
-  background: #f5f5f5;
-  border: none;
-  border-radius: 0px;
+  background: #ffffff;
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
   margin: 24px 0;
   font-size: 13px;
   line-height: 1.7;
   color: #333333;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
 }
 #nice .code-snippet__fix .code-snippet__line-index li::before {
   color: #bbbbbb;
@@ -163,11 +173,12 @@ export default `/* 06. 杂志 — 黑白杂志：细线分节、居中拉引、�
   color: #333333;
 }
 #nice pre.custom {
-  background: #f5f5f5;
-  border: none;
-  border-radius: 0px;
+  background: #ffffff;
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
   margin: 24px 0;
   padding: 0;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
 }
 #nice pre code {
   font-family: 'SF Mono', Menlo, Consolas, 'PingFang SC', monospace;
@@ -190,16 +201,16 @@ export default `/* 06. 杂志 — 黑白杂志：细线分节、居中拉引、�
   display: block;
   max-width: 100%;
   margin: 0 auto;
-  border-radius: 0px;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
 }
 #nice figcaption {
   margin-top: 10px;
   font-size: 12.5px;
   line-height: 1.6;
   color: #999999;
-  text-align: left;
+  text-align: center;
   letter-spacing: 0.04em;
-  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
 }
 
 /* ========== 表格 ========== */
@@ -210,7 +221,7 @@ export default `/* 06. 杂志 — 黑白杂志：细线分节、居中拉引、�
   border-collapse: collapse;
   font-size: 13.5px;
   line-height: 1.6;
-  color: #262626;
+  color: #333333;
 }
 #nice table tr { border: 0; background: #ffffff; }
 #nice table tr:nth-child(2n) { background: #ffffff; }
@@ -221,19 +232,19 @@ export default `/* 06. 杂志 — 黑白杂志：细线分节、居中拉引、�
   text-align: left;
   min-width: 56px;
 }
-#nice table tr th { background: none; font-weight: 700; color: #111111; }
+#nice table tr th { background: none; font-weight: 700; color: #161616; }
 
-#nice table { font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; }
-#nice table tr th { font-size: 12.5px; border-bottom: 1.5px solid #222222; }
-#nice table tr td { border-bottom: 1px solid #e8e8e8; }
+#nice .table-container { border-radius: 12px; box-shadow: 0 2px 14px rgba(0, 0, 0, 0.06); border: 1px solid #f0f0f0; }
+#nice table tr th { background: #fafafa; border-bottom: 1px solid #eeeeee; }
+#nice table tr td { border-bottom: 1px solid #f3f3f3; }
 
 /* ========== 分隔线 ========== */
 #nice hr {
   border: none;
-  width: 28px;
-  height: 3px;
-  margin: 48px auto;
-  background: var(--accent);
+  height: 1px;
+  width: 100%;
+  margin: 40px auto;
+  background: #eeeeee;
 }
 
 /* 悬挂的引号 / 角标需要露出引用框 */
@@ -268,7 +279,7 @@ export default `/* 06. 杂志 — 黑白杂志：细线分节、居中拉引、�
 
 /* ========== 脚注 / 参考资料 ========== */
 #nice .footnote-word {
-  color: #111111;
+  color: #161616;
   font-weight: 400;
 }
 #nice .footnote-ref {
@@ -280,7 +291,7 @@ export default `/* 06. 杂志 — 黑白杂志：细线分节、居中拉引、�
   display: block;
   font-family: inherit;
   font-size: 14px;
-  color: #111111;
+  color: #161616;
   background: none;
   border: none;
   padding: 0;
@@ -294,7 +305,7 @@ export default `/* 06. 杂志 — 黑白杂志：细线分节、居中拉引、�
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: #111111;
+  color: #161616;
 }
 #nice .footnote-item p, #nice .footnote-num {
   font-size: 12px;

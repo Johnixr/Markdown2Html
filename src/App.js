@@ -32,6 +32,7 @@ import {
   markdownParserWechat,
   updateMathjax
 } from "./utils/helper";
+import { decorate } from "./utils/palette";
 import pluginCenter from "./utils/pluginCenter";
 import appContext from "./utils/appContext";
 import { uploadAdaptor } from "./utils/imageHosting";
@@ -341,10 +342,13 @@ class App extends Component {
     } = this.props.view;
     const { isSearchOpen } = this.props.dialog;
 
-    const parseHtml =
+    // 主题可在 CSS 里声明装饰（@decor），渲染时注入
+    const parseHtml = decorate(
       codeNum === 0
         ? markdownParserWechat.render(this.props.content.content)
-        : markdownParser.render(this.props.content.content);
+        : markdownParser.render(this.props.content.content),
+      this.props.content.style
+    );
 
     const mdEditingClass = classnames({
       "nice-md-editing": !isImmersiveEditing,
