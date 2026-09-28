@@ -1,5 +1,6 @@
 import juice from "juice";
-import {message} from "antd";
+import { collectVars, resolveVars, stripVarDecls } from "./palette";
+import { message } from "antd";
 import {
   BASIC_THEME_ID,
   CODE_THEME_ID,
@@ -7,7 +8,8 @@ import {
   LAYOUT_ID,
   BOX_ID,
   FONT_THEME_ID,
-  MJX_DATA_FORMULA,
+  PALETTE_THEME_ID,
+  MJX_DATA_FORMULA
 } from "./constant";
 
 export const solveWeChatMath = () => {
@@ -48,7 +50,8 @@ export const solveZhihuMath = () => {
       data += "\\\\";
     }
 
-    mjx.outerHTML = '<img class="Formula-image" data-eeimg="true" src="" alt="' + data + '">';
+    mjx.outerHTML =
+      '<img class="Formula-image" data-eeimg="true" src="" alt="' + data + '">';
   }
 };
 
@@ -74,7 +77,7 @@ export const solveJuejinMath = () => {
 };
 
 // 掘金单独处理代码块
-export const solveJuejinCode = (html) => {
+export const solveJuejinCode = html => {
   // 掘金代码不换行问题
   const brReg = /<pre([^>])*class="custom"([^>])*>(.*?)<\/pre>/g;
   const brMatchList = html.match(brReg);
@@ -109,7 +112,10 @@ export const solveHtml = () => {
     item.setAttribute("data-tool", "mdnice编辑器");
   }
   let html = element.innerHTML;
-  html = html.replace(/<mjx-container (class="inline.+?)<\/mjx-container>/g, "<span $1</span>");
+  html = html.replace(
+    /<mjx-container (class="inline.+?)<\/mjx-container>/g,
+    "<span $1</span>"
+  );
   html = html.replace(/\s<span class="inline/g, '&nbsp;<span class="inline');
   html = html.replace(/svg><\/span>\s/g, "svg></span>&nbsp;");
   html = html.replace(/mjx-container/g, "section");
@@ -119,11 +125,18 @@ export const solveHtml = () => {
   const markdownStyle = document.getElementById(MARKDOWN_THEME_ID).innerText;
   const codeStyle = document.getElementById(CODE_THEME_ID).innerText;
   const fontStyle = document.getElementById(FONT_THEME_ID).innerText;
+  const paletteStyle = document.getElementById(PALETTE_THEME_ID).innerText;
+  // 微信不认 CSS 变量：按「主题默认 → 主题色菜单」的顺序取值，把 var() 换成字面色值
+  const vars = collectVars(basicStyle, markdownStyle, paletteStyle);
+  html = resolveVars(html, vars);
+  const css = stripVarDecls(
+    resolveVars(basicStyle + markdownStyle + codeStyle + fontStyle, vars)
+  );
   let res = "";
   try {
-    res = juice.inlineContent(html, basicStyle + markdownStyle + codeStyle + fontStyle, {
+    res = juice.inlineContent(html, css, {
       inlinePseudoElements: true,
-      preserveImportant: true,
+      preserveImportant: true
     });
   } catch (e) {
     message.error("请检查 CSS 文件是否编写正确！");
@@ -132,7 +145,7 @@ export const solveHtml = () => {
   return res;
 };
 
-export const copySafari = (text) => {
+export const copySafari = text => {
   // 获取 input
   let input = document.getElementById("copy-input");
   if (!input) {

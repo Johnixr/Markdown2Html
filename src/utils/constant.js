@@ -1,11 +1,16 @@
-export const CLIENT_ID = process.env.NODE_ENV === "development" ? "e791aa2a7a64b3f766a2" : "b3a3c46bd66318367efa";
+export const CLIENT_ID =
+  process.env.NODE_ENV === "development"
+    ? "e791aa2a7a64b3f766a2"
+    : "b3a3c46bd66318367efa";
 export const CLIENT_SECRET =
   process.env.NODE_ENV === "development"
     ? "e80cde65c7071286086077892f3336bc2a3f4576"
     : "dfd9fdc1da6a6b10e473280bf0a379513f1d154d";
 
-export const PROXY = "https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token";
-export const SM_MS_PROXY = "https://cors-anywhere.herokuapp.com/https://sm.ms/api/upload";
+export const PROXY =
+  "https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token";
+export const SM_MS_PROXY =
+  "https://cors-anywhere.herokuapp.com/https://sm.ms/api/upload";
 export const ACCESS_TOKEN = "ACCESS_TOKEN";
 
 export const USERNAME = "username";
@@ -36,6 +41,7 @@ export const BASIC_THEME_ID = "basic-theme";
 export const CODE_THEME_ID = "code-theme";
 export const MARKDOWN_THEME_ID = "markdown-theme";
 export const FONT_THEME_ID = "font-theme";
+export const PALETTE_THEME_ID = "palette-theme";
 export const LAYOUT_ID = "nice";
 export const BOX_ID = "nice-rich-text-box";
 export const IMAGE_HOSTING_NAMES = {
@@ -43,13 +49,19 @@ export const IMAGE_HOSTING_NAMES = {
   aliyun: "阿里云",
   qiniuyun: "七牛云",
   gitee: "Gitee",
-  github: "GitHub",
+  github: "GitHub"
 };
 
 export const RIGHT_SYMBOL = "✔️";
 export const EXPORT_FILENAME_SUFFIX = ".md";
 
-export const STYLE_LABELS = ["basic-theme", "markdown-theme", "code-theme", "font-theme"];
+export const STYLE_LABELS = [
+  "basic-theme",
+  "markdown-theme",
+  "code-theme",
+  "font-theme",
+  "palette-theme"
+];
 
 export const ENTER_DELAY = 0.5;
 export const LEAVE_DELAY = 0.0;
@@ -57,64 +69,64 @@ export const LEAVE_DELAY = 0.0;
 export const CODE_OPTIONS = [
   {
     id: "wechat",
-    name: "微信代码主题",
+    name: "微信代码主题"
   },
   {
     id: "atomOneDark",
     macId: "macAtomOneDark",
-    name: "atom-one-dark",
+    name: "atom-one-dark"
   },
   {
     id: "atomOneLight",
     macId: "macAtomOneLight",
-    name: "atom-one-light",
+    name: "atom-one-light"
   },
   {
     id: "monokai",
     macId: "macMonokai",
-    name: "monokai",
+    name: "monokai"
   },
   {
     id: "github",
     macId: "macGithub",
-    name: "github",
+    name: "github"
   },
   {
     id: "vs2015",
     macId: "macVs2015",
-    name: "vs2015",
+    name: "vs2015"
   },
   {
     id: "xcode",
     macId: "macXcode",
-    name: "xcode",
-  },
+    name: "xcode"
+  }
 ];
 
 export const SITDOWN_OPTIONS = [
   {
     key: "default",
     value: "默认引擎",
-    desc: "默认引擎",
+    desc: "默认引擎"
   },
   {
     key: "wechat",
     value: "微信公众号 - https://mp.weixin.qq.com/",
-    desc: "微信引擎",
+    desc: "微信引擎"
   },
   {
     key: "zhihu",
     value: "知乎专栏 - https://zhuanlan.zhihu.com/",
-    desc: "知乎引擎",
+    desc: "知乎引擎"
   },
   {
     key: "juejin",
     value: "掘金 - https://juejin.im/post/",
-    desc: "掘金引擎",
+    desc: "掘金引擎"
   },
   {
     key: "csdn",
     value: "CSDN - https://blog.csdn.net/",
-    desc: "CSDN引擎",
-  },
+    desc: "CSDN引擎"
+  }
 ];
