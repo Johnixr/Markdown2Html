@@ -44,9 +44,10 @@ class VersionDialog extends Component {
     try {
       const data = {
         versionId: 1,
-        versionNumber: "1.0.0",
+        versionNumber: "2.0.0",
         versionTimeline: [
-          "2025-09-24 集成102套全新CSS模板",
+          "2026-09-28 主题全面改版：20 套白底主题，新增「主题色」一键换色",
+          "2026-09-28 主题支持章节装饰与微动效（内联 SVG，可直接复制到公众号）",
           "2025-09-24 修复React Fragment兼容性问题",
           "2025-09-24 优化主题选择体验",
           "2025-09-24 Fork 自 shenweiyan/Markdown2Html 并重大升级"
