@@ -1,9 +1,9 @@
-export default `/* 13. 页边 — 悬挂版心：章节号挂在页边、正文对齐标题、悬挂引号 */
+export default `/* 13. 页边 — 悬挂版心：页边短横领起章节、正文对齐标题、悬挂引号 */
 /* 主题色：--accent 主色，--accent-soft 浅色（只用于线条和小装饰）；编辑器「主题色」菜单可一键替换 */
 /* ---------- 装饰（渲染时注入，占位符 {n} {nn} {cn} {p}） ---------- */
 
 /* @decor h2.prefix
-{nn}
+<svg width="14" height="2" viewBox="0 0 14 2" style="display:block;"><rect width="14" height="2" style="fill:var(--accent)"/></svg>
 */
 
 /* @decor blockquote.before
@@ -62,7 +62,7 @@ export default `/* 13. 页边 — 悬挂版心：章节号挂在页边、正文�
 
 #nice h2 {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   font-size: 19px;
   font-weight: 800;
   line-height: 1.45;

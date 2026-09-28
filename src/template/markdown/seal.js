@@ -1,9 +1,9 @@
-export default `/* 09. 印章 — 章节钤印：中文序号朱印、楷体按语、文末完字印 */
+export default `/* 09. 印章 — 印记：空心印框章节、楷体按语、文末完字印 */
 /* 主题色：--accent 主色，--accent-soft 浅色（只用于线条和小装饰）；编辑器「主题色」菜单可一键替换 */
 /* ---------- 装饰（渲染时注入，占位符 {n} {nn} {cn} {p}） ---------- */
 
 /* @decor h2.prefix
-<svg width="30" height="30" viewBox="0 0 30 30" style="display:inline-block;vertical-align:middle;margin-right:12px;"><rect x="0.5" y="0.5" width="29" height="29" rx="4" style="fill:var(--accent)"/><rect x="3" y="3" width="24" height="24" rx="2.5" fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="0.8"/><text x="15" y="20.5" text-anchor="middle" font-size="14" font-weight="700" font-family="Songti SC, STSong, serif" fill="#ffffff">{cn}</text></svg>
+<svg width="16" height="16" viewBox="0 0 16 16" style="display:inline-block;vertical-align:-1px;margin-right:12px;"><rect x="0.6" y="0.6" width="14.8" height="14.8" rx="2" fill="none" stroke-width="1.2" style="stroke:var(--accent)"/><rect x="5" y="5" width="6" height="6" rx="1" style="fill:var(--accent)"/></svg>
 */
 
 /* @decor hr

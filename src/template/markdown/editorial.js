@@ -2,10 +2,6 @@ export default `/* 01. 编辑部 — 编辑式：章节短签、灰卡引用、�
 /* 主题色：--accent 主色，--accent-soft 浅色（只用于线条和小装饰）；编辑器「主题色」菜单可一键替换 */
 /* ---------- 装饰（渲染时注入，占位符 {n} {nn} {cn} {p}） ---------- */
 
-/* @decor blockquote.before
-<section class="nice-q-before"><svg width="28" height="3" viewBox="0 0 28 3" style="display:block;margin:0 0 12px;"><rect width="28" height="3" style="fill:var(--accent)"/></svg></section>
-*/
-
 /* @decor end
 <section class="nice-end"><svg width="8" height="8" viewBox="0 0 8 8" style="display:inline-block;"><rect width="8" height="8" style="fill:var(--accent)"/></svg></section>
 */

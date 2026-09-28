@@ -1,10 +1,5 @@
-export default `/* 17. 卡片 — 纸片感：灰卡章节头+右侧序号、柔影白卡引用与图片 */
+export default `/* 17. 卡片 — 纸片感：圆角方块章节、柔影白卡引用、图片与代码 */
 /* 主题色：--accent 主色，--accent-soft 浅色（只用于线条和小装饰）；编辑器「主题色」菜单可一键替换 */
-/* ---------- 装饰（渲染时注入，占位符 {n} {nn} {cn} {p}） ---------- */
-
-/* @decor h2.suffix
-{nn}
-*/
 
 /* ========== 全局 ========== */
 #nice {
@@ -57,25 +52,20 @@ export default `/* 17. 卡片 — 纸片感：灰卡章节头+右侧序号、柔
 }
 
 #nice h2 {
-  display: flex;
-  align-items: center;
-  font-size: 17.5px;
-  font-weight: 700;
+  font-size: 19px;
+  font-weight: 800;
   line-height: 1.5;
-  background: #f5f5f4;
-  border-radius: 10px;
-  padding: 11px 16px;
-  margin: 44px 0 18px;
+  margin: 46px 0 18px;
 }
-#nice h2 .content { flex: 1; }
-#nice h2 .suffix {
-  display: block;
-  flex: none;
-  font-family: 'SF Mono', Menlo, Consolas, 'PingFang SC', monospace;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--accent);
-  margin-left: 12px;
+#nice h2 .prefix {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  background: var(--accent);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  margin-right: 12px;
+  vertical-align: 2px;
 }
 #nice h3 {
   font-size: 16px;

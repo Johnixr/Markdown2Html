@@ -1,14 +1,5 @@
-export default `/* 04. 学刊 — 期刊版式：章节自动编号、三线表、灰底按语 */
+export default `/* 04. 学刊 — 期刊版式：宋体章节、三线表、灰底按语 */
 /* 主题色：--accent 主色，--accent-soft 浅色（只用于线条和小装饰）；编辑器「主题色」菜单可一键替换 */
-/* ---------- 装饰（渲染时注入，占位符 {n} {nn} {cn} {p}） ---------- */
-
-/* @decor h2.prefix
-{n}
-*/
-
-/* @decor h3.prefix
-{p}.{n}
-*/
 
 /* ========== 全局 ========== */
 #nice {
@@ -69,24 +60,10 @@ export default `/* 04. 学刊 — 期刊版式：章节自动编号、三线表�
   padding-bottom: 10px;
   margin: 44px 0 18px;
 }
-#nice h2 .prefix {
-  display: inline;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-weight: 400;
-  color: var(--accent);
-  margin-right: 12px;
-}
 #nice h3 {
   font-size: 15.5px;
   font-weight: 700;
   margin: 30px 0 10px;
-}
-#nice h3 .prefix {
-  display: inline;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-weight: 400;
-  color: var(--accent);
-  margin-right: 10px;
 }
 
 /* ========== 行内 ========== */

@@ -232,7 +232,6 @@ export default `/* 14. 尺素 — 书信：生长的小枝章节、「」角标�
 }
 #nice table tr th { background: none; font-weight: 700; color: #1f1f1f; }
 
-#nice table tr th { border-bottom: 1px solid #333333; }
 #nice table tr td { border-bottom: 1px solid #efedea; }
 
 /* ========== 分隔线 ========== */

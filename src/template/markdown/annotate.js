@@ -1,9 +1,9 @@
-export default `/* 18. 批注 — 读书批注：圈码章节、波浪线小标题、注字签引文 */
+export default `/* 18. 批注 — 读书批注：手写弧线章节、波浪线小标题、注字签引文 */
 /* 主题色：--accent 主色，--accent-soft 浅色（只用于线条和小装饰）；编辑器「主题色」菜单可一键替换 */
 /* ---------- 装饰（渲染时注入，占位符 {n} {nn} {cn} {p}） ---------- */
 
-/* @decor h2.prefix
-<svg width="24" height="24" viewBox="0 0 24 24" style="display:inline-block;vertical-align:-5px;margin-right:10px;"><circle cx="12" cy="12" r="10.5" fill="none" stroke-width="1.3" style="stroke:var(--accent)"/><text x="12" y="16.3" text-anchor="middle" font-size="12" font-family="Georgia, serif" style="fill:var(--accent)">{n}</text></svg>
+/* @decor h2.suffix
+<svg width="72" height="10" viewBox="0 0 72 10" style="display:block;margin-top:6px;"><path d="M1.5 7.5 C 18 2.5, 42 1.5, 70.5 4.5" fill="none" stroke-width="1.8" stroke-linecap="round" style="stroke:var(--accent)"/></svg>
 */
 
 /* @decor blockquote.before
@@ -70,7 +70,7 @@ export default `/* 18. 批注 — 读书批注：圈码章节、波浪线小标�
   line-height: 1.5;
   margin: 46px 0 18px;
 }
-#nice h2 .prefix { display: inline; }
+#nice h2 .suffix { display: block; line-height: 0; }
 #nice h3 {
   font-size: 16px;
   font-weight: 700;

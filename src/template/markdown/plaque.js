@@ -1,6 +1,10 @@
-export default `/* 20. 铭牌 — 古典铭牌：双层细框居中章节、两侧短线小标题、双线框引用 */
+export default `/* 20. 铭牌 — 古典铭牌：菱形领起的居中章节、两侧短线小标题、双线框引用 */
 /* 主题色：--accent 主色，--accent-soft 浅色（只用于线条和小装饰）；编辑器「主题色」菜单可一键替换 */
 /* ---------- 装饰（渲染时注入，占位符 {n} {nn} {cn} {p}） ---------- */
+
+/* @decor h2.prefix
+<svg width="12" height="12" viewBox="0 0 12 12" style="display:block;margin:0 auto 12px;"><rect x="2.5" y="2.5" width="7" height="7" transform="rotate(45 6 6)" fill="none" stroke-width="1.1" style="stroke:var(--accent)"/></svg>
+*/
 
 /* @decor h3.prefix
 <svg width="16" height="2" viewBox="0 0 16 2" style="display:inline-block;vertical-align:middle;margin-right:10px;"><rect width="16" height="1" style="fill:var(--accent)"/></svg>
@@ -69,15 +73,11 @@ export default `/* 20. 铭牌 — 古典铭牌：双层细框居中章节、两�
   margin: 50px 0 24px;
   line-height: 1.5;
 }
+#nice h2 .prefix { display: block; line-height: 0; }
 #nice h2 .content {
-  display: inline-block;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 700;
-  letter-spacing: 0.16em;
-  border: 1px solid #1c1c1c;
-  outline: 1px solid var(--accent-soft);
-  outline-offset: 3px;
-  padding: 6px 18px 6px 20px;
+  letter-spacing: 0.2em;
 }
 #nice h3 {
   font-size: 15.5px;
